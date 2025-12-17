@@ -89,5 +89,5 @@ sudo passwd -l root
 - [ ] System tested: sudo works, root login blocked
 
 
-[Go Back to main menu](/Readme.md)
+[Go Back to main menu](/README.md)
 [Go Back to chapter menu](1000-Basic-Security-Settings.md)
