@@ -29,10 +29,10 @@ These basics form the foundation for securing any system.
 
 This chapter currently covers:
 
-- [Linux Root User Access](docs/1010-Linux-Root-User-Access.md)  
-- [sudo Hardening](docs/1020-sudo-Hardening.md)
-- [Manage Users and Groups](docs/1030-Manage-Users-and-Groups.md)
-- [ssh Hardening](docs/1040-ssh-hardening.md)
+- [Linux Root User Access](1010-Linux-Root-User-Access.md)  
+- [sudo Hardening](1020-sudo-Hardening.md)
+- [Manage Users and Groups](1030-Manage-Users-and-Groups.md)
+- [ssh Hardening](1040-ssh-hardening.md)
 
 
 [Back to main page](Readme.md)
