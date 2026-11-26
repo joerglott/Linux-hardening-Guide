@@ -16,6 +16,7 @@ The first step is to create SSH keys for passwordless login. Consider whether yo
 
 Next, adjust the SSH server configuration file — on Ubuntu this is `sshd_config` located in `/etc/ssh`. As `root`, edit the file and:
 
+- check including conf files from other directories (`Include /etc/ssh/sshd_config.d/*.conf`)
 - disable root login (`PermitRootLogin no`),
 - disable password authentication (`PasswordAuthentication no`),
 - ensure SSH protocol 2 is enforced (`Protocol 2`).
@@ -86,6 +87,10 @@ With this you are transfering safely the public key to the server. At the end we
 
 ### Configuring the sshd service on the remote system
 To make the ssh service safe you should edit the `/etc/ssh/sshd_config` file. First of all we need to adjust some lines. Search in the standard sshd config file these lines:
+
+Check the configuration file for `Include /etc/ssh/sshd_config.d/*.conf`. Have a look in this directory, if there is no file included and you want to use the `sshd_config` from the `/et/ssh` directory you can comment this line. Otherwise each service restart will perform an include of all conf-files from that specified directory. The other way is: leave the `sshd_config` file untouched and add your personal configuration in this directory. This custom directory will override the default settings of the `sshd_config`.
+
+If you are using Ubuntu server systems you will have running the `cloud-init` service. This service will help the deployment of servers - in case you are not using `cloud-init` you should check this directory. In standard Ubuntu server settings you will find there a config file which leads you to `PasswordAuthentication yes`. This maybe will compromise your settings of not using `PasswordAuthentication` on sshd service. Prevent this misconfiguration while checking this special config files or use the `/etc/ssh/sshd_config.d` directory for deploying your personal sshd configuration.
 
 First of all - changing the port number only is not security enough. At least with tools like nmap you can find out the real port number on which the ssh agent is listening. For that - in my eyes - it does not matter on which port the ssh daemon is listening - standard is 22. In case of feeling better you can remove the `#` from the line `#Port 22` and change the port to any portnumber you prefer.
 
@@ -191,6 +196,7 @@ Use this checklist to secure the ssh agent on your systems.
 
 ### Configure the ssh service on the server
 - [ ] Open `/etc/ssh/sshd_config` file in a editor of your choice
+- [ ] check including conf files from other directories (`Include /etc/ssh/sshd_config.d/*.conf`), comment if not used
 - [ ] Disallow root login
 - [ ] in case of having more network cards specify the network where the agent has to listen
 - [ ] Set `PublicKeyAuthentication` on (remove the comment # to be sure it is active (standard))
