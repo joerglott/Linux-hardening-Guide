@@ -76,4 +76,4 @@ Use this checklist to secure the ssh agent on your systems.
 - [ ] Verify that services and  security settings remain intact.
 
 [Go Back to main menu](Readme.md)
-[Go Back to chapter menu](docs/1000-Basic-Security-Settings.md)
+[Go Back to chapter menu](1000-Basic-Security-Settings.md)
