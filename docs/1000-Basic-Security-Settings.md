@@ -33,6 +33,7 @@ This chapter currently covers:
 - [sudo Hardening](1020-sudo-Hardening.md)
 - [Manage Users and Groups](1030-Manage-Users-and-Groups.md)
 - [ssh Hardening](1040-ssh-hardening.md)
+- [Ubuntu Cloud-init](1050-ubuntu-cloud-init.md)
 
 
 [Back to main page](/README.md)
